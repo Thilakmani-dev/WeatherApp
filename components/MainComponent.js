@@ -7,17 +7,11 @@ import moment from 'moment';
 const MainComponent = props => {
   console.log(props);
   const [cityName, setcityName] = useState('chennai');
-  const [loading, setloading] = useState(true);
   useEffect(() => {
-    props.getLocationData(cityName);
-    props.getWeatherData(props.lat, props.lon);
-    setloading(false);
+    // props.getLocationData(cityName);
+    props.getWeatherData(13.0827, 80.2707);
   }, [setcityName]);
-  return loading ? (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Loading...</Text>
-    </View>
-  ) : (
+  return (
     <ScrollView style={styles.parentContainer}>
       <View style={styles.mainContainer}>
         <Text style={styles.headerText}>{cityName.toUpperCase()}</Text>
